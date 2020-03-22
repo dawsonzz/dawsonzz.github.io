@@ -46,15 +46,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Dawson">
-<meta property="og:url" content="https://dawsonzz.github.io/archives/2020/01/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="利用opencv将图像拼接为一张图片">
+<meta property="og:url" content="https://dawsonzz.github.io/2020/03/22/combineImages/index.html">
 <meta property="og:site_name" content="Dawson">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-22T01:29:24.000Z">
+<meta property="article:modified_time" content="2020-03-22T02:28:03.762Z">
 <meta property="article:author" content="Dawson">
+<meta property="article:tag" content="opencv">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dawsonzz.github.io/archives/2020/01/">
+<link rel="canonical" href="https://dawsonzz.github.io/2020/03/22/combineImages/">
 
 
 <script id="page-configurations">
@@ -62,11 +66,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Archive | Dawson</title>
+  <title>利用opencv将图像拼接为一张图片 | Dawson</title>
   
 
 
@@ -160,89 +164,86 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 9 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dawsonzz.github.io/2020/03/22/combineImages/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dawson">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dawson">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          利用opencv将图像拼接为一张图片
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-22 09:29:24 / Modified: 10:28:03" itemprop="dateCreated datePublished" datetime="2020-03-22T09:29:24+08:00">2020-03-22</time>
+            </span>
+
+          
+            <div class="post-description"><center></center></div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <h2 id="使用colRange和rowrRange"><a href="#使用colRange和rowrRange" class="headerlink" title="使用colRange和rowrRange"></a>使用colRange和rowrRange</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MatrixCom=[Matrix1 Matrix1] 并排拼接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">comMatbyCol</span><span class="params">(cv::Mat &amp;Matrix1, cv::Mat &amp;Matrix2, cv::Mat &amp;MatrixCom)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	CV_Assert(Matrix1.rows == Matrix2.rows);<span class="comment">//行数不相等，出现错误中断    </span></span><br><span class="line">	MatrixCom.create(Matrix1.rows, Matrix1.cols + Matrix2.cols, Matrix1.type());</span><br><span class="line">	cv::Mat temp = MatrixCom.colRange(<span class="number">0</span>, Matrix1.cols);<span class="comment">//创建的是对MatriCom的引用</span></span><br><span class="line">    <span class="comment">// 取得图像范围是MatrxiCom[:][0, Matrix1.cols) 不包括  Matrix1.cols</span></span><br><span class="line">	Matrix1.copyTo(temp);</span><br><span class="line">	cv::Mat temp1 = MatrixCom.colRange(Matrix1.cols, Matrix1.cols + Matrix2.cols);</span><br><span class="line">	Matrix2.copyTo(temp1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//MatrixCom=[Matrix1;Matrix1] 垂直拼接</span></span><br><span class="line"><span class="keyword">void</span> ImgSpliter::comMatbyRow(cv::Mat &amp;Matrix1, cv::Mat &amp;Matrix2, cv::Mat &amp;MatrixCom)</span><br><span class="line">&#123;</span><br><span class="line">	CV_Assert(Matrix1.cols == Matrix2.cols);<span class="comment">//列数不相等，出现错误中断    </span></span><br><span class="line">	MatrixCom.create(Matrix1.rows + Matrix2.rows, Matrix1.cols, Matrix1.type());</span><br><span class="line">	cv::Mat temp = MatrixCom.rowRange(<span class="number">0</span>, Matrix1.rows);</span><br><span class="line">	Matrix1.copyTo(temp);</span><br><span class="line">	cv::Mat temp1 = MatrixCom.rowRange(Matrix1.rows, Matrix1.rows + Matrix2.rows);</span><br><span class="line">	Matrix2.copyTo(temp1);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MatrixCom.colRange(0, Matrix1.cols) 等价于 </span></span><br><span class="line"><span class="comment">//MatrixCom(Range:all(), Range(0, Matrix1.cols))</span></span><br><span class="line"><span class="comment">//Mat E = A(Range:all(), Range(1,3)); // using row and column boundaries</span></span><br><span class="line"><span class="comment">//虽然它们的信息头不同，但通过任何一个对象所做的改变也会影响其它对象</span></span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-23T14:26:25+08:00"
-              content="2020-01-23">
-          01-23
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/23/shared-ptr/" itemprop="url">
-            <span itemprop="name">boost::asio中shared_ptr的作用</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-14T18:13:30+08:00"
-              content="2020-01-14">
-          01-14
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/14/thread-waiting/" itemprop="url">
-            <span itemprop="name">线程等待</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-13T22:53:44+08:00"
-              content="2020-01-13">
-          01-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/13/atomic/" itemprop="url">
-            <span itemprop="name">多线程初探</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+<h2 id="使用ROI方式获取对应引用再进行拷贝"><a href="#使用ROI方式获取对应引用再进行拷贝" class="headerlink" title="使用ROI方式获取对应引用再进行拷贝"></a>使用ROI方式获取对应引用再进行拷贝</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cv::Rect rec(1143, 0, 1036, 153)；</span><br><span class="line">cv::Mat templateImg = img(rec)；</span><br></pre></td></tr></table></figure>
 
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/opencv/" rel="tag"># opencv</a>
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/21/bulid-v2ray/" rel="prev" title="pacificrack 搭建 v2ray">
+      <i class="fa fa-chevron-left"></i> pacificrack 搭建 v2ray
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -293,6 +294,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用colRange和rowrRange"><span class="nav-number">1.</span> <span class="nav-text">使用colRange和rowrRange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用ROI方式获取对应引用再进行拷贝"><span class="nav-number">2.</span> <span class="nav-text">使用ROI方式获取对应引用再进行拷贝</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -54,10 +54,10 @@
 <meta property="og:description" content="基础操作">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-29T01:20:21.000Z">
-<meta property="article:modified_time" content="2020-02-29T01:23:03.202Z">
+<meta property="article:modified_time" content="2020-03-22T02:22:48.325Z">
 <meta property="article:author" content="Dawson">
-<meta property="article:tag" content="opencv">
 <meta property="article:tag" content="c++">
+<meta property="article:tag" content="opencv">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://dawsonzz.github.io/2020/02/29/opencv-quicklook/">
@@ -193,10 +193,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-29 09:20:21 / Modified: 09:23:03" itemprop="dateCreated datePublished" datetime="2020-02-29T09:20:21+08:00">2020-02-29</time>
+              <time title="Created: 2020-02-29 09:20:21" itemprop="dateCreated datePublished" datetime="2020-02-29T09:20:21+08:00">2020-02-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-22 10:22:48" itemprop="dateModified" datetime="2020-03-22T10:22:48+08:00">2020-03-22</time>
+              </span>
 
           
             <div class="post-description"><center>基础操作</center></div>
@@ -211,7 +217,7 @@
 
       
         <h1 id="opencv常用速查"><a href="#opencv常用速查" class="headerlink" title="opencv常用速查"></a>opencv常用速查</h1><p>opencv3.4.9，内容截取自官网教学文档</p>
-<h2 id="矩阵复制"><a href="#矩阵复制" class="headerlink" title="矩阵复制"></a>矩阵复制</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//浅拷贝</span></span><br><span class="line">Mat A, C;                                 <span class="comment">// 只创建信息头部分</span></span><br><span class="line">A = imread(argv[<span class="number">1</span>], CV_LOAD_IMAGE_COLOR); <span class="comment">// 这里为矩阵开辟内存</span></span><br><span class="line"></span><br><span class="line"><span class="function">Mat <span class="title">B</span><span class="params">(A)</span></span>;                                 <span class="comment">// 使用拷贝构造函数</span></span><br><span class="line"></span><br><span class="line">C = A;                                    <span class="comment">// 赋值运算符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//深拷贝</span></span><br><span class="line"><span class="function">Mat <span class="title">D</span> <span class="params">(A, Rect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>) )</span></span>; <span class="comment">// using a rectangle</span></span><br><span class="line">Mat E = A(Range:all(), Range(<span class="number">1</span>,<span class="number">3</span>)); <span class="comment">// using row and column boundaries</span></span><br><span class="line"></span><br><span class="line">Mat F = A.clone();</span><br><span class="line">Mat G;</span><br><span class="line">A.copyTo(G);</span><br></pre></td></tr></table></figure>
+<h2 id="矩阵复制"><a href="#矩阵复制" class="headerlink" title="矩阵复制"></a>矩阵复制</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//浅拷贝</span></span><br><span class="line">Mat A, C;                                 <span class="comment">// 只创建信息头部分</span></span><br><span class="line">A = imread(argv[<span class="number">1</span>], CV_LOAD_IMAGE_COLOR); <span class="comment">// 这里为矩阵开辟内存</span></span><br><span class="line"></span><br><span class="line"><span class="function">Mat <span class="title">B</span><span class="params">(A)</span></span>;                                 <span class="comment">// 使用拷贝构造函数</span></span><br><span class="line"></span><br><span class="line">C = A;                                    <span class="comment">// 赋值运算符</span></span><br><span class="line"></span><br><span class="line"><span class="function">Mat <span class="title">D</span> <span class="params">(A, Rect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>) )</span></span>; <span class="comment">// using a rectangle</span></span><br><span class="line">Mat E = A(Range:all(), Range(<span class="number">1</span>,<span class="number">3</span>)); <span class="comment">// using row and column boundaries</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//深拷贝</span></span><br><span class="line">Mat F = A.clone();</span><br><span class="line">Mat G;</span><br><span class="line">A.copyTo(G);</span><br></pre></td></tr></table></figure>
 
 <h2 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Mat <span class="title">M</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>, CV_8UC3, Scalar(<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>))</span></span>;   </span><br><span class="line"></span><br><span class="line"><span class="comment">//超过二维的矩阵</span></span><br><span class="line"><span class="keyword">int</span> sz[<span class="number">3</span>] = &#123;<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>&#125;; </span><br><span class="line"><span class="function">Mat <span class="title">L</span><span class="params">(<span class="number">3</span>,sz, CV_8UC(<span class="number">1</span>), Scalar::all(<span class="number">0</span>))</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//开辟内存</span></span><br><span class="line">M.create(<span class="number">4</span>,<span class="number">4</span>, CV_8UC(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
 
@@ -234,8 +240,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/opencv/" rel="tag"># opencv</a>
               <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/opencv/" rel="tag"># opencv</a>
           </div>
 
         
@@ -247,7 +253,10 @@
     <a href="/2020/02/05/xmodmap/" rel="prev" title="linux下全局改按键">
       <i class="fa fa-chevron-left"></i> linux下全局改按键
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/21/windows-error-tracking/" rel="next" title="windows应用程序报错原因追溯">
+      windows应用程序报错原因追溯 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -321,13 +330,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -46,21 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="在使用vim的过程中，因为手指不够长，按esc键比较费劲，网上有很多人把capslk大写锁定键改为了esc键，还有的人把答谢锁定键改为了ctrl键，使用组合键ctrl+[进行退出，这里我采用第二种方案。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="linux下全局改按键">
-<meta property="og:url" content="https://dawsonzz.github.io/2020/02/05/xmodmap/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="windows应用程序报错原因追溯">
+<meta property="og:url" content="https://dawsonzz.github.io/2020/03/21/windows-error-tracking/index.html">
 <meta property="og:site_name" content="Dawson">
-<meta property="og:description" content="在使用vim的过程中，因为手指不够长，按esc键比较费劲，网上有很多人把capslk大写锁定键改为了esc键，还有的人把答谢锁定键改为了ctrl键，使用组合键ctrl+[进行退出，这里我采用第二种方案。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-05T12:53:49.000Z">
-<meta property="article:modified_time" content="2020-02-05T13:43:43.774Z">
+<meta property="article:published_time" content="2020-03-21T13:30:02.000Z">
+<meta property="article:modified_time" content="2020-03-22T01:30:33.334Z">
 <meta property="article:author" content="Dawson">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="vim">
+<meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dawsonzz.github.io/2020/02/05/xmodmap/">
+<link rel="canonical" href="https://dawsonzz.github.io/2020/03/21/windows-error-tracking/">
 
 
 <script id="page-configurations">
@@ -72,7 +69,7 @@
   };
 </script>
 
-  <title>linux下全局改按键 | Dawson</title>
+  <title>windows应用程序报错原因追溯 | Dawson</title>
   
 
 
@@ -171,7 +168,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dawsonzz.github.io/2020/02/05/xmodmap/">
+    <link itemprop="mainEntityOfPage" href="https://dawsonzz.github.io/2020/03/21/windows-error-tracking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -184,7 +181,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          linux下全局改按键
+          windows应用程序报错原因追溯
         </h1>
 
         <div class="post-meta">
@@ -193,13 +190,19 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-05 20:53:49 / Modified: 21:43:43" itemprop="dateCreated datePublished" datetime="2020-02-05T20:53:49+08:00">2020-02-05</time>
+              <time title="Created: 2020-03-21 21:30:02" itemprop="dateCreated datePublished" datetime="2020-03-21T21:30:02+08:00">2020-03-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-22 09:30:33" itemprop="dateModified" datetime="2020-03-22T09:30:33+08:00">2020-03-22</time>
+              </span>
 
           
-            <div class="post-description"><center>在使用vim的过程中，因为手指不够长，按esc键比较费劲，网上有很多人把capslk大写锁定键改为了esc键，还有的人把答谢锁定键改为了ctrl键，使用组合键ctrl+[进行退出，这里我采用第二种方案。</center></div>
+            <div class="post-description"><center></center></div>
 
         </div>
       </header>
@@ -210,31 +213,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg</span><br></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>编写程序时，提示应用程序无法正常启动，然而什么提示都没有，应该怎么去查原因,<strong>但还是没能解决问题</strong></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>右键“我的电脑”，然后点击“管理”→“事件查看器”→“Windows 日志”→“应用程序”，查看错误信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“E:\xxxxx\boost_python-vc120-mt-gd-1_57.dll”的激活上下文生成失败。 找不到从属程序集 Microsoft.VC90.DebugCRT,processorArchitecture&#x3D;&quot;amd64&quot;,publicKeyToken&#x3D;&quot;1fc8b3b9a1e18e3b&quot;,type&#x3D;&quot;win32&quot;,version&#x3D;&quot;9.0.21022.8&quot;。 请使用 sxstrace.exe 进行详细诊断。</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>查看当前键位设置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap -pke</span><br></pre></td></tr></table></figure>
+<p>大概意思就是我缺少了<code>boost_python-vc120-mt-gd-1_57.dll</code>相关的依赖</p>
+<p>使用VS2013下的dumpbin程序查看依赖，在命令行中<code>D:\Microsoft Visual Studio 12.0\VC\bin&gt; .\dumpbin.exe /dependents xxxxxx</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Image has the following dependencies:</span><br><span class="line"></span><br><span class="line">    python26.dll</span><br><span class="line">    MSVCP90D.dll</span><br><span class="line">    MSVCR90D.dll</span><br><span class="line">    KERNEL32.dll</span><br></pre></td></tr></table></figure>
 
-<p>将键位设置保存到<code>～/.xmodmap</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap -pke &gt; ~/.xmodmap</span><br></pre></td></tr></table></figure>
+<p>对比Windows日志的内容，我们缺的就是MSVCR90D.dll这个文件了，这是要安装VS2008才有的带有调试信息的动态库。</p>
+<h2 id="图形端的查看工具"><a href="#图形端的查看工具" class="headerlink" title="图形端的查看工具"></a>图形端的查看工具</h2><p><a href="https://github.com/lucasg/Dependencies" target="_blank" rel="noopener">https://github.com/lucasg/Dependencies</a></p>
+<h2 id="安装VS2008报错"><a href="#安装VS2008报错" class="headerlink" title="安装VS2008报错"></a>安装VS2008报错</h2><p>错误提示安装<code>运行时系统必备</code>失败，进入到VS2008安装包下的WCU目录，手动把里面的安装包点一遍，再重新运行安装程序</p>
+<h2 id="dll文件复制"><a href="#dll文件复制" class="headerlink" title="dll文件复制"></a>dll文件复制</h2><p>将```Microsoft Visual Studio 9.0\VC\redist\Debug_NonRedist\x86\Microsoft.VC90.DebugCRT``下的文件复制到exe所在的文件夹。再次运行提示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在指令清单中找到的组件标识与请求组件的标识不匹配。 参考是 Microsoft.VC90.DebugCRT,processorArchitecture&#x3D;&quot;amd64&quot;,publicKeyToken&#x3D;&quot;1fc8b3b9a1e18e3b&quot;,type&#x3D;&quot;win32&quot;,version&#x3D;&quot;9.0.21022.8&quot;。 定义是 Microsoft.VC90.DebugCRT,processorArchitecture&#x3D;&quot;x86&quot;,publicKeyToken&#x3D;&quot;1fc8b3b9a1e18e3b&quot;,type&#x3D;&quot;win32&quot;,version&#x3D;&quot;9.0.21022.8&quot;</span><br></pre></td></tr></table></figure>
 
-<p>接下来我们<code>ctrl</code>键和大写锁定键的内容替换，我要知道他们对应的keycode是多少，通过命令xev，按下按键可以看到现实keycode</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xev</span><br></pre></td></tr></table></figure>
+<p>把<code>Microsoft.VC90.DebugCRT.manifest</code>文件对应项修改<code>processorArchitecture=&quot;amd64&quot;</code></p>
+<h2 id="日志记录错误"><a href="#日志记录错误" class="headerlink" title="日志记录错误"></a>日志记录错误</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svchost (8544,R,98) TILEREPOSITORYS-1-5-18: 打开日志文件 C:\WINDOWS\system32\config\systemprofile\AppData\Local\TileDataLayer\Database\EDB.log 时出现错误 -1023 (0xfffffc01)。</span><br></pre></td></tr></table></figure>
 
-<p>通过这个方式知道了<code>ctrl</code>和大写锁定键的keycode分别是37和66</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//ctrl键</span><br><span class="line">KeyRelease event, serial 37, synthetic NO, window 0x5800001,</span><br><span class="line">root 0x115, subw 0x0, time 2057253, (160,-14), root:(2157,360),</span><br><span class="line">state 0x14, keycode 37 (keysym 0xffe3, Control_L), same_screen YES,</span><br><span class="line">XLookupString gives 0 bytes: </span><br><span class="line">XFilterEvent returns: False</span><br><span class="line">//大写锁定键</span><br><span class="line">KeyRelease event, serial 37, synthetic NO, window 0x5800001,</span><br><span class="line">root 0x115, subw 0x0, time 2059683, (160,-14), root:(2157,360),</span><br><span class="line">state 0x12, keycode 66 (keysym 0xffe5, Caps_Lock), same_screen YES,</span><br><span class="line">XLookupString gives 0 bytes: </span><br><span class="line">XFilterEvent returns: False</span><br></pre></td></tr></table></figure>
-
-<p>接下来编辑<code>～/.xmodmap</code>的内容，把keycode 37（<code>ctrl</code>）的内容复制到keycod 66（大写锁定）后面</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//原文件</span><br><span class="line">keycode  37 = Control_L NoSymbol Control_L   </span><br><span class="line">...</span><br><span class="line">keycode  66 = Caps_Lock NoSymbol Caps_Lock</span><br><span class="line">//修改后</span><br><span class="line">keycode  37 = Control_L NoSymbol Control_L  </span><br><span class="line">...</span><br><span class="line">keycode  66 = Control_L NoSymbol Control_L</span><br></pre></td></tr></table></figure>
-
-<p>在文件头部添加，清除大写锁定键和<code>ctrl</code>键</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clear lock                                                                  </span><br><span class="line">clear control</span><br></pre></td></tr></table></figure>
-
-<p>在文件尾部添加，用于更新，因为这里我已经没有使用大写锁定键了，所以就没有添加<code>add lock = Caps_Lock</code>语句</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add control = Control_L Control_R</span><br></pre></td></tr></table></figure>
-
-<p>退出之后使用xmodmap更新,修改成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap ～/.xmodmap</span><br></pre></td></tr></table></figure>
+<p>然后在C:\Windows\System32\config\systemprofile\AppData\Local\创建TileDataLayer文件夹，再到TileDataLayer文件夹中创建Database文件夹。我的文件夹中并没有自动出现文件，于是重启后进行以下步骤，就看到出现了文件。</p>
+<ol>
+<li><p>点击“开始”-&gt;在搜索栏内输入“cmd”，右键点击cmd.exe，选择以管理员身份运行，跳出提示框时选择继续。</p>
+</li>
+<li><p>键入sfc /scannow ，然后按 Enter。系统开始扫描，请您耐心等待。</p>
+</li>
+</ol>
+<p>结果还是无法运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskhostw (6948,D,0) WebCacheLocal: 向文件 &quot;C:\Users\dawson\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat&quot; 中偏移量 14745600 (0x0000000000e10000) 写入 32768 (0x00008000) 字节的请求成功，但是花费了 OS 异常的长时间(21 秒)。此问题可能是硬件故障造成的。请与您的硬件供应商联系获得进一步协助诊断此问题。</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -245,8 +249,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/linux/" rel="tag"># linux</a>
-              <a href="/tags/vim/" rel="tag"># vim</a>
+              <a href="/tags/windows/" rel="tag"># windows</a>
           </div>
 
         
@@ -255,12 +258,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/01/opencv-first-running-in-linux/" rel="prev" title="opencv的示范案例在linux环境下编译">
-      <i class="fa fa-chevron-left"></i> opencv的示范案例在linux环境下编译
+    <a href="/2020/02/29/opencv-quicklook/" rel="prev" title="opencv基础操作">
+      <i class="fa fa-chevron-left"></i> opencv基础操作
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/29/opencv-quicklook/" rel="next" title="opencv基础操作">
-      opencv基础操作 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/21/bulid-v2ray/" rel="next" title="pacificrack 搭建 v2ray">
+      pacificrack 搭建 v2ray <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -321,7 +324,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载工具"><span class="nav-number">1.</span> <span class="nav-text">下载工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形端的查看工具"><span class="nav-number">3.</span> <span class="nav-text">图形端的查看工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装VS2008报错"><span class="nav-number">4.</span> <span class="nav-text">安装VS2008报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dll文件复制"><span class="nav-number">5.</span> <span class="nav-text">dll文件复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志记录错误"><span class="nav-number">6.</span> <span class="nav-text">日志记录错误</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
