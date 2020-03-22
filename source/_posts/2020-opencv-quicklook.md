@@ -19,10 +19,10 @@ Mat B(A);                                 // 使用拷贝构造函数
 
 C = A;                                    // 赋值运算符
 
-//深拷贝
 Mat D (A, Rect(10, 10, 100, 100) ); // using a rectangle
 Mat E = A(Range:all(), Range(1,3)); // using row and column boundaries
 
+//深拷贝
 Mat F = A.clone();
 Mat G;
 A.copyTo(G);
