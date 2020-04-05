@@ -68,3 +68,6 @@ svchost (8544,R,98) TILEREPOSITORYS-1-5-18: 打开日志文件 C:\WINDOWS\system
 taskhostw (6948,D,0) WebCacheLocal: 向文件 "C:\Users\dawson\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat" 中偏移量 14745600 (0x0000000000e10000) 写入 32768 (0x00008000) 字节的请求成功，但是花费了 OS 异常的长时间(21 秒)。此问题可能是硬件故障造成的。请与您的硬件供应商联系获得进一步协助诊断此问题。
 ```
 
+## 最终解决方案
+
+在其他地方下载了`boost_python-vc120-mt-gd-1_57.dll`解决了问题

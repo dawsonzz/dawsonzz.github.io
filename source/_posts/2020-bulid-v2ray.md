@@ -112,6 +112,12 @@ systemctl enable v2ray
 
 
 
+## WebSocket+TLS+Web
+
+参考https://toutyrater.github.io/advanced/wss_and_web.html
+
+其中nginx的配置在/etc/nginx/conf.d/v2ray.conf
+
 ## 参考
 
 https://www.v2ray.com/awesome/tools.html
